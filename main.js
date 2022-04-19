@@ -1,6 +1,5 @@
 // Declaração das variáveis globais
 let form = document.getElementById("form");
-
 let input = document.getElementById("tarefas");
 let list = document.getElementById("resultado");
 let message = document.getElementById("message");
@@ -15,12 +14,10 @@ form.addEventListener("submit", (e) => {
   } else {
     inputBox.setAttribute("value", `${input.value}`);
     inputBox.setAttribute("readonly", true);
-
     list.appendChild(element);
 
     // Actions
     let edit = document.createElement("span");
-
     edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
     console.log("aaa", edit.prop);
     // Ação de editar ou salvar os valores
