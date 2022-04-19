@@ -1,55 +1,66 @@
- // Declaração das variáveis globais
- let form = document.getElementById("form");
- let input = document.getElementById("input");
- let list = document.getElementById("result");
- let message = document.getElementById("message");
+// Declaração das variáveis globais
+let form = document.getElementById("form");
 
- form.addEventListener("submit", (e) => {
-   let inputBox = document.createElement("input");
-   let element = document.createElement("ul");
-   element.appendChild(inputBox);
-   if (input.value == "") {
-     message.textContent =
-       "Você precisa inserir algum dado antes de pesquisar";
-     e.preventDefault();
-   } else {
-     inputBox.setAttribute("value", `${input.value}`);
-     inputBox.setAttribute("readonly", true);
+let input = document.getElementById("tarefas");
+let list = document.getElementById("resultado");
+let message = document.getElementById("message");
 
-     list.appendChild(element);
+form.addEventListener("submit", (e) => {
+  let inputBox = document.createElement("input");
+  let element = document.createElement("div");
+  element.appendChild(inputBox);
+  if (input.value == "") {
+    message.textContent = "Você precisa inserir algum dado antes de pesquisar";
+    e.preventDefault();
+  } else {
+    inputBox.setAttribute("value", `${input.value}`);
+    inputBox.setAttribute("readonly", true);
 
-     // Actions
-     let edit = document.createElement("span");
-     let remover = document.createElement("span");
-     edit.textContent = "Editar";
-     remover.textContent = "Deletar";
+    list.appendChild(element);
 
-     // Ação de editar ou salvar os valores
-     edit.addEventListener("click", () => {
-       if (edit.textContent == "Salvar") {
-         inputBox.setAttribute("readonly", true);
-         edit.textContent = "Editar";
-       } else {
-         edit.textContent = "Salvar";
-         inputBox.removeAttribute("readonly");
-       }
-     });
-     
-     // Ação de remover os elementos
-     remover.addEventListener("click", () => {
-       list.removeChild(element);
-     });
-     // Element ul
-     element.append(edit);
-     element.append(remover);
-     message.remove();
-     clear();
-     e.preventDefault();
-   }
- });
+    // Actions
+    let edit = document.createElement("span");
 
+    edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+    console.log("aaa", edit.prop);
+    // Ação de editar ou salvar os valores
+    edit.addEventListener("click", () => {
+      if (edit.innerText == "Salvar") {
+        inputBox.setAttribute("readonly", true);
+        edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+        edit.classList.add("pen-style");
+        edit.classList.remove("edit-style");
+        inputBox.classList.remove("input-edit");
+      } else {
+        inputBox.removeAttribute("readonly");
+        inputBox.focus();
+        inputBox.classList.add("input-edit");
+        edit.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
+        edit.innerText = "Salvar";
+        if (edit.innerText == "Salvar") {
+          edit.classList.add("edit-style");
+        }
+      }
+    });
 
- // Função para resetar os valores do input
- function clear() {
-   input.value = "";
- }
+    let remover = document.createElement("span");
+    remover.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+
+    // Ação de remover os elementos
+    remover.addEventListener("click", () => {
+      list.removeChild(element);
+    });
+    // Element ul
+    element.append(edit);
+    element.append(remover);
+    message.remove();
+
+    clear();
+    e.preventDefault();
+  }
+});
+
+// Função para resetar os valores do input
+function clear() {
+  input.value = "";
+}

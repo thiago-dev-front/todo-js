@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+
+.tarefas {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.tarefas-conteudo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.tarefas-conteudo .tarefas-conteudo__texto h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tarefas-conteudo .tarefas-conteudo__texto p {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  color: #0000ff;
+}
+
+#message {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: red;
+  margin-top: 30px;
+}
+
+#tarefas {
+  min-height: 25px;
+  min-width: 250px;
+}
+
+.formulario .lista-tarefas #add-tarefas {
+  background: #0000cd;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.lista-tarefas #add-tarefas:hover {
+  background: #0000ff;
+  transition: all 0.3s ease;
+}
+
+#resultado {
+  min-width: 410px;
+}
+
+#resultado div {
+  margin: 10px 0;
+}
+
+.input-edit {
+  border-bottom: 1px solid #000 !important;
+}
+
+#resultado input {
+  min-height: 25px;
+  min-width: 250px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+#resultado div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#resultado span i {
+  font-size: 30px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+#resultado span .fa-trash {
+  color: #a52a2a;
+}
+
+.pen-style {
+  color: #2e8b57;
+}
+
+.edit-style {
+  background-color: #0000ff;
+  border-radius: 25px;
+  padding: 5px 15px;
+  color: #fff;
+  font-family: "Roboto";
+  margin-left: 30px;
+  cursor: pointer;
+}
