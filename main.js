@@ -19,7 +19,7 @@ form.addEventListener("submit", (e) => {
     // Actions
     let edit = document.createElement("span");
     edit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
-    console.log("aaa", edit.prop);
+
     // Ação de editar ou salvar os valores
     edit.addEventListener("click", () => {
       if (edit.innerText == "Salvar") {
@@ -32,7 +32,6 @@ form.addEventListener("submit", (e) => {
         inputBox.removeAttribute("readonly");
         inputBox.focus();
         inputBox.classList.add("input-edit");
-        edit.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
         edit.innerText = "Salvar";
         if (edit.innerText == "Salvar") {
           edit.classList.add("edit-style");
@@ -47,7 +46,6 @@ form.addEventListener("submit", (e) => {
     remover.addEventListener("click", () => {
       list.removeChild(element);
     });
-    // Element ul
     element.append(edit);
     element.append(remover);
     message.remove();
